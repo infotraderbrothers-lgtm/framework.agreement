@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Framework Agreement</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Times New Roman', Georgia, serif;
+      font-size: 11pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .document {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: white;
+      padding: 60px 70px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .header {
+      text-align: center;
+      border-bottom: 3px double #333;
+      padding-bottom: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .header h1 {
+      font-size: 18pt;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    
+    .header .subtitle {
+      font-size: 12pt;
+      font-weight: normal;
+      letter-spacing: 1px;
+      color: #444;
+    }
+    
+    .parties {
+      margin-bottom: 35px;
+      padding: 25px;
+      background: #fafafa;
+      border-left: 4px solid #333;
+    }
+    
+    .parties h2 {
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+    
+    .party {
+      margin-bottom: 15px;
+    }
+    
+    .party:last-child { margin-bottom: 0; }
+    
+    .party-label {
+      font-weight: bold;
+      font-size: 10pt;
+      text-transform: uppercase;
+      color: #555;
+    }
+    
+    .party-name {
+      font-weight: bold;
+      font-size: 11pt;
+    }
+    
+    .placeholder {
+      background: #fff3cd;
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 9pt;
+    }
+    
+    .effective-date {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 40px;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+      page-break-inside: avoid;
+    }
+    
+    .section-number {
+      font-size: 12pt;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    
+    .subsection {
+      margin: 15px 0 15px 20px;
+    }
+    
+    .subsection-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    
+    .clause {
+      margin: 10px 0;
+      text-align: justify;
+    }
+    
+    .clause-number {
+      font-weight: bold;
+    }
+    
+    .definitions dt {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+    
+    .definitions dd {
+      margin-left: 20px;
+      margin-bottom: 8px;
+    }
+    
+    ul.scope-list {
+      margin: 10px 0 10px 40px;
+      list-style-type: disc;
+    }
+    
+    ul.scope-list li {
+      margin: 5px 0;
+    }
+    
+    ol.process-list {
+      margin: 10px 0 10px 40px;
+    }
+    
+    ol.process-list li {
+      margin: 5px 0;
+    }
+    
+    .schedules-ref {
+      margin: 40px 0;
+      padding: 20px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+    
+    .schedules-ref h3 {
+      font-size: 10pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+    
+    .signature-block {
+      margin-top: 60px;
+      padding-top: 30px;
+      border-top: 2px solid #333;
+    }
+    
+    .signature-header {
+      font-size: 14pt;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .signature-parties {
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+    }
+    
+    .signature-party {
+      flex: 1;
+    }
+    
+    .signature-party h4 {
+      font-size: 10pt;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 20px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #ccc;
+    }
+    
+    .sig-field {
+      margin: 15px 0;
+    }
+    
+    .sig-label {
+      font-size: 9pt;
+      color: #666;
+      text-transform: uppercase;
+    }
+    
+    .sig-line {
+      border-bottom: 1px solid #333;
+      min-height: 25px;
+      margin-top: 5px;
+    }
+    
+    @media print {
+      body { background: white; padding: 0; }
+      .document { box-shadow: none; padding: 40px 50px; }
+      .section { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="document">
+    <div class="header">
+      <div style="display: flex; align-items: center; gap: 25px; margin-bottom: 20px;">
+        <div style="border: 4px solid #333; border-radius: 50%; padding: 10px; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden;">
+          <img src="https://github.com/infotraderbrothers-lgtm/traderbrothers-assets-logo/blob/main/Trader%20Brothers.png?raw=true" alt="Trader Brothers Logo" style="width: 85px; height: auto; max-width: 100%; max-height: 100%; object-fit: contain;">
+        </div>
+        <div style="text-align: left; flex: 1;">
+          <h1 style="margin: 0; font-size: 18pt; font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">Framework Agreement</h1>
+          <div style="font-size: 12pt; font-weight: normal; letter-spacing: 1px; color: #444; margin-top: 5px;">Trades & Construction Services</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="parties">
+      <h2>Parties to this Agreement</h2>
+      <div class="party">
+        <div class="party-label">The Client</div>
+        <div class="party-name"><span class="placeholder">{{ContractingPartyName}}</span></div>
+        <div>A company incorporated in <span class="placeholder">{{ContractingPartyJurisdiction}}</span> with registered number <span class="placeholder">{{ContractingPartyRegistrationNumber}}</span> and registered office at <span class="placeholder">{{ContractingPartyAddress}}</span></div>
+      </div>
+      <div class="party">
+        <div class="party-label">The Contractor</div>
+        <div class="party-name"><span class="placeholder">{{YourCompanyName}}</span></div>
+        <div>A company incorporated in Scotland with registered number <span class="placeholder">{{YourCompanyRegistrationNumber}}</span> and registered office at <span class="placeholder">{{YourCompanyAddress}}</span></div>
+      </div>
+    </div>
+    
+    <div class="effective-date">
+      This Framework Agreement is made on <span class="placeholder">{{AgreementDate}}</span>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">1. Definitions & Interpretation</div>
+      <div class="subsection">
+        <div class="subsection-title">1.1 Definitions</div>
+        <div class="clause">In this Agreement, the following terms have the meanings set out below:</div>
+        <dl class="definitions">
+          <dt>"Agreement"</dt>
+          <dd>This Framework Agreement including all Schedules and any variations.</dd>
+          <dt>"Call-Off Contract"</dt>
+          <dd>A separate project-specific agreement raised under this Framework Agreement using the template at Schedule 1.</dd>
+          <dt>"Client"</dt>
+          <dd><span class="placeholder">{{ContractingPartyName}}</span></dd>
+          <dt>"Contractor"</dt>
+          <dd><span class="placeholder">{{YourCompanyName}}</span></dd>
+          <dt>"Project"</dt>
+          <dd>Any construction, refurbishment, installation, or fit-out works instructed under a Call-Off Contract.</dd>
+          <dt>"Works"</dt>
+          <dd>The trades, labour, materials, and services provided by the Contractor under each Call-Off Contract.</dd>
+          <dt>"Completion"</dt>
+          <dd>When Works meet the standard defined in the Call-Off Contract.</dd>
+        </dl>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">1.2 Interpretation</div>
+        <div class="clause">Headings are for convenience only. Words in the singular include the plural and vice versa. References to legislation include amendments and Scottish statutory instruments.</div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">2. Appointment & Relationship</div>
+      <div class="clause">The Client appoints the Contractor as a preferred provider of joinery, construction, and associated trades services for the duration of this Agreement.</div>
+      <div class="clause">Nothing in this Agreement obliges the Client to issue Call-Off Contracts nor guarantees any minimum volume of work.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">3. Term & Renewal</div>
+      <div class="clause"><span class="clause-number">3.1</span> This Agreement commences on <span class="placeholder">{{AgreementStartDate}}</span> and continues for <span class="placeholder">{{AgreementTermYears}}</span> years unless terminated earlier.</div>
+      <div class="clause"><span class="clause-number">3.2</span> It may be extended for further periods by written agreement.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">4. Scope of Works</div>
+      <div class="clause">The Contractor will deliver trades services including, but not limited to:</div>
+      <ul class="scope-list">
+        <li>Bespoke joinery</li>
+        <li>General carpentry and timber works</li>
+        <li>Internal and external building works</li>
+        <li>Fit-out and installation services</li>
+        <li>Repair and maintenance works</li>
+        <li>Labour-only or supply-and-install packages</li>
+      </ul>
+      <div class="clause">Detailed scope, pricing, timeline, and materials responsibilities shall be defined in each Call-Off Contract.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">5. Instruction & Call-Off Process</div>
+      <div class="clause">Projects are instructed as follows:</div>
+      <ol class="process-list">
+        <li>Client issues a request outlining project details.</li>
+        <li>Contractor submits a quotation within agreed timeframes.</li>
+        <li>Client confirms acceptance in writing.</li>
+        <li>A Call-Off Contract (Schedule 1) is completed and signed.</li>
+        <li>Works proceed according to the agreed programme.</li>
+      </ol>
+      <div class="clause"><strong>No Works commence without a signed Call-Off Contract.</strong></div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">6. Payment, Pricing & Invoicing</div>
+      <div class="subsection">
+        <div class="subsection-title">6.1 Pricing</div>
+        <div class="clause">Rates shall follow Schedule 2 (Rates & Fees) unless otherwise stated in a Call-Off Contract.</div>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">6.2 Invoicing</div>
+        <div class="clause">The Contractor shall issue invoices: at agreed milestones, or monthly for work completed, or as specified in the Call-Off Contract.</div>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">6.3 Payment Terms</div>
+        <div class="clause">Payment is due within <span class="placeholder">{{PaymentTermsDays}}</span> days of invoice, unless otherwise agreed.</div>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">6.4 Late Payments</div>
+        <div class="clause">Late payments may accrue statutory interest under the Late Payment of Commercial Debts (Interest) Act 1998 (as applied in Scotland).</div>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">6.5 Retention</div>
+        <div class="clause">If applicable, retention shall be set at <span class="placeholder">{{RetentionPercentage}}</span>% unless otherwise stated.</div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">7. Variations & Additional Work</div>
+      <div class="clause">All changes must be agreed in writing. Variations may adjust the price and/or programme.</div>
+      <div class="clause">The Contractor is not obliged to perform additional work without written approval.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">8. Programme & Delays</div>
+      <div class="clause">The Contractor shall use reasonable skill and care to meet agreed timelines.</div>
+      <div class="clause">The Contractor is <strong>not liable</strong> for delays caused by: the Client or other trades; supply chain issues outside the Contractor's control; changes requested by the Client; or unforeseeable events (weather, site access issues, emergencies).</div>
+      <div class="clause">Extensions of time may be granted where appropriate.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">9. Quality Standards & Compliance</div>
+      <div class="clause">The Contractor shall perform the Works: in accordance with the Building (Scotland) Regulations 2004 and amendments; following relevant British Standards (BS/BS EN); with professional skill, care, and workmanship; and using suitable materials.</div>
+      <div class="clause">Any project-specific quality requirements shall be included in the Call-Off Contract.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">10. Health & Safety / CDM 2015</div>
+      <div class="clause">Both parties must comply with applicable laws including: Construction (Design and Management) Regulations 2015 (CDM 2015); site-specific safety rules; and required risk assessments & method statements (RAMS).</div>
+      <div class="clause">The Client ensures adequate site information is given. The Contractor ensures their workforce is competent and safe.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">11. Insurance</div>
+      <div class="clause">The Contractor shall maintain:</div>
+      <ul class="scope-list">
+        <li>Public Liability Insurance: <span class="placeholder">{{PLIAmount}}</span> minimum</li>
+        <li>Employers' Liability Insurance: £10 million (statutory)</li>
+        <li>Professional Indemnity (if design provided): <span class="placeholder">{{PIAmount}}</span></li>
+      </ul>
+      <div class="clause">Proof of insurance shall be provided upon request. Current certificates are attached at Schedule 3.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">12. Liability & Indemnity</div>
+      <div class="subsection">
+        <div class="subsection-title">12.1 Contractor Liability</div>
+        <div class="clause">The Contractor is liable only for: damage caused by its negligence; defects arising from its workmanship or supplied materials; and breach of contract.</div>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">12.2 Limit on Liability</div>
+        <div class="clause">Liability is capped at the total value of the relevant Call-Off Contract or the Contractor's insurance limit, whichever is greater.</div>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">12.3 Exclusions</div>
+        <div class="clause">The Contractor is <strong>not liable</strong> for: delays caused by others; design issues (unless Contractor provides design); loss of profits, loss of revenue, or indirect losses; issues caused by other trades; or pre-existing structural or hidden defects.</div>
+      </div>
+      <div class="subsection">
+        <div class="subsection-title">12.4 Indemnity</div>
+        <div class="clause">Each party indemnifies the other for losses arising from their own negligence or breach.</div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">13. Materials, Tools & Ownership</div>
+      <div class="clause">Materials supplied by the Contractor remain its property until paid in full.</div>
+      <div class="clause">The Client must provide secure storage where required.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">14. Subcontracting</div>
+      <div class="clause">The Contractor may subcontract parts of the Works, remaining fully responsible for quality and compliance.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">15. Confidentiality & Data Protection</div>
+      <div class="clause">Both parties agree to maintain confidentiality and comply with UK GDPR and the Data Protection Act 2018.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">16. Dispute Resolution</div>
+      <div class="clause">If a dispute arises:</div>
+      <ol class="process-list">
+        <li>Parties shall attempt informal negotiation.</li>
+        <li>If unresolved, parties enter mediation.</li>
+        <li>As a final step, disputes may be referred to adjudication under the Housing Grants, Construction and Regeneration Act 1996.</li>
+      </ol>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">17. Termination</div>
+      <div class="clause">Either party may terminate this Agreement with <span class="placeholder">{{TerminationNoticePeriod}}</span> days' notice, or immediately if the other party: materially breaches the Agreement; becomes insolvent; or repeatedly fails to perform obligations.</div>
+      <div class="clause">Termination does not affect payment for completed Works.</div>
+    </div>
+    
+    <div class="section">
+      <div class="section-number">18. Schedules</div>
+      <div class="clause">The following Schedules form part of this Agreement and are provided as separate documents:</div>
+      <ul class="scope-list">
+        <li><strong>Schedule 1:</strong> Call-Off Contract Template</li>
+        <li><strong>Schedule 2:</strong> Rates & Fees</li>
+        <li><strong>Schedule 3:</strong> Insurance Certificates</li>
+      </ul>
+    </div>
+    
+    <div class="signature-block">
+      <div class="signature-header">Execution</div>
+      
+      <h4 style="font-size: 10pt; text-transform: uppercase; color: #555; margin-bottom: 20px; padding-bottom: 5px; border-bottom: 1px solid #ccc;">Signed on behalf of <span class="placeholder">{{YourCompanyName}}</span></h4>
+      
+      <div style="display: flex; justify-content: space-between; gap: 30px; margin-bottom: 40px;">
+        <div class="digital-sig-box" style="flex: 1; border: 1px solid #333; padding: 20px; background: #fff;">
+          <div style="font-family: Arial, sans-serif; font-size: 12px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Name</div>
+          <div style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #222; margin-bottom: 4px;">Olaf Sawczak</div>
+          <div style="font-family: Arial, sans-serif; font-size: 12px; color: #555; margin-bottom: 15px;">Director</div>
+          <div style="font-family: Arial, sans-serif; font-size: 12px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Signature</div>
+          <div style="border: 1px solid #ccc; min-height: 60px; background: #fafafa;"></div>
+        </div>
+        
+        <div class="digital-sig-box" style="flex: 1; border: 1px solid #333; padding: 20px; background: #fff;">
+          <div style="font-family: Arial, sans-serif; font-size: 12px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Name</div>
+          <div style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #222; margin-bottom: 4px;">Milosz Sawczak</div>
+          <div style="font-family: Arial, sans-serif; font-size: 12px; color: #555; margin-bottom: 15px;">Manager</div>
+          <div style="font-family: Arial, sans-serif; font-size: 12px; color: #555; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Signature</div>
+          <div style="border: 1px solid #ccc; min-height: 60px; background: #fafafa;"></div>
+        </div>
+      </div>
+      
+      <div class="signature-party" style="max-width: 400px; margin: 0 auto;">
+        <h4 style="font-size: 10pt; text-transform: uppercase; color: #555; margin-bottom: 20px; padding-bottom: 5px; border-bottom: 1px solid #ccc; text-align: center;">Signed on behalf of <span class="placeholder">{{ContractingPartyName}}</span></h4>
+        
+        <div id="client-sign-section">
+          <div class="sig-field">
+            <div class="sig-label" style="margin-bottom: 5px;">Name</div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <input type="text" id="clientName" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Times New Roman', Georgia, serif; font-size: 11pt; background: white;" placeholder="Enter full name">
+              <label style="display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 9pt; color: #666; white-space: nowrap;">
+                <input type="checkbox" id="nameCheckbox" onchange="toggleNameEdit()" style="width: 16px; height: 16px; cursor: pointer; accent-color: #bc9c22;">
+                <span>Confirm</span>
+              </label>
+            </div>
+          </div>
+          <div class="sig-field">
+            <div class="sig-label" style="margin-bottom: 5px;">Position</div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <input type="text" id="clientPosition" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Times New Roman', Georgia, serif; font-size: 11pt; background: white;" placeholder="Position">
+              <label style="display: flex; align-items: center; gap: 5px; cursor: pointer; font-size: 9pt; color: #666; white-space: nowrap;">
+                <input type="checkbox" id="positionCheckbox" onchange="togglePositionEdit()" style="width: 16px; height: 16px; cursor: pointer; accent-color: #bc9c22;">
+                <span>Confirm</span>
+              </label>
+            </div>
+          </div>
+          <div class="sig-field">
+            <div class="sig-label">Signature</div>
+            <canvas id="clientSignaturePad" style="width: 100%; height: 120px; border: 2px solid #333; border-radius: 4px; background: white; cursor: crosshair; display: block; touch-action: none;"></canvas>
+            <button onclick="clearClientSignature()" style="margin-top: 8px; padding: 6px 15px; background: #6b5a16; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 10pt;">Clear</button>
+          </div>
+          <div class="sig-field">
+            <div class="sig-label">Date</div>
+            <input type="date" id="clientDate" readonly style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; font-family: 'Times New Roman', Georgia, serif; font-size: 11pt; background: #f5f5f5;">
+          </div>
+          
+          <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <button onclick="submitContract()" style="padding: 12px 40px; background: linear-gradient(135deg, #bc9c22, #a68a1e); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 12pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Submit</button>
+          </div>
+        </div>
+        
+        <div id="client-signed-section" style="display: none;"></div>
+        
+        <div id="contract-actions" style="display: none; margin-top: 30px; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px;">
+          <h4 style="font-size: 11pt; color: #1a1a1a; margin-bottom: 15px; text-align: center;">Contract Signed Successfully</h4>
+          <div style="display: flex; gap: 10px; flex-direction: column;">
+            <button onclick="viewContract()" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #2d2d2d, #1a1a1a); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 11pt; font-weight: bold;">View Signed Contract</button>
+            <button onclick="sendToWebhook()" id="sendWebhookBtn" style="width: 100%; padding: 12px; background: linear-gradient(135deg, #bc9c22, #a68a1e); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 11pt; font-weight: bold;">Send Contract</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Thank You Popup -->
+  <div id="thankYouPopup" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 10000; align-items: center; justify-content: center;">
+    <div style="background: white; padding: 50px; border-radius: 20px; max-width: 500px; text-align: center; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+      <div style="font-size: 60px; margin-bottom: 20px;">✓</div>
+      <h2 style="font-size: 24pt; color: #1a1a1a; margin-bottom: 20px;">Thank You!</h2>
+      <p style="font-size: 13pt; color: #555; line-height: 1.6; margin-bottom: 15px;">Thank you for signing the Framework Agreement. We appreciate the time you've taken to review and complete this document.</p>
+      <p style="font-size: 12pt; color: #bc9c22; font-weight: bold; margin-bottom: 30px;">You will receive your copy of the signed contract within the next 30-45 minutes.</p>
+      <button onclick="closeThankYou()" style="padding: 12px 40px; background: linear-gradient(135deg, #bc9c22, #a68a1e); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 12pt; font-weight: bold;">Close</button>
+    </div>
+  </div>
+  
+  <script>
+    // Webhook URL - Replace with your Make.com webhook URL
+    const WEBHOOK_URL = 'YOUR_MAKE_COM_WEBHOOK_URL_HERE';
+    
+    let signedContractHTML = '';
+    
+    // Set up client signature pad
+    const clientCanvas = document.getElementById('clientSignaturePad');
+    const clientCtx = clientCanvas.getContext('2d');
+    let isDrawing = false;
+    let clientSignatureData = null;
+    
+    // Set canvas size
+    const dpr = window.devicePixelRatio || 1;
+    const rect = clientCanvas.getBoundingClientRect();
+    clientCanvas.width = rect.width * dpr;
+    clientCanvas.height = rect.height * dpr;
+    clientCtx.scale(dpr, dpr);
+    clientCanvas.style.width = rect.width + 'px';
+    clientCanvas.style.height = rect.height + 'px';
+    
+    clientCtx.strokeStyle = '#000';
+    clientCtx.lineWidth = 2;
+    clientCtx.lineCap = 'round';
+    clientCtx.lineJoin = 'round';
+    
+    function getMousePos(e) {
+      const rect = clientCanvas.getBoundingClientRect();
+      const scaleX = clientCanvas.width / dpr / rect.width;
+      const scaleY = clientCanvas.height / dpr / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+    
+    function getTouchPos(e) {
+      const rect = clientCanvas.getBoundingClientRect();
+      const scaleX = clientCanvas.width / dpr / rect.width;
+      const scaleY = clientCanvas.height / dpr / rect.height;
+      return {
+        x: (e.touches[0].clientX - rect.left) * scaleX,
+        y: (e.touches[0].clientY - rect.top) * scaleY
+      };
+    }
+    
+    clientCanvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      const pos = getMousePos(e);
+      clientCtx.beginPath();
+      clientCtx.moveTo(pos.x, pos.y);
+    });
+    
+    clientCanvas.addEventListener('mousemove', (e) => {
+      if (!isDrawing) return;
+      const pos = getMousePos(e);
+      clientCtx.lineTo(pos.x, pos.y);
+      clientCtx.stroke();
+    });
+    
+    clientCanvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+      clientSignatureData = clientCanvas.toDataURL('image/png');
+    });
+    
+    clientCanvas.addEventListener('mouseleave', () => {
+      isDrawing = false;
+    });
+    
+    clientCanvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      isDrawing = true;
+      const pos = getTouchPos(e);
+      clientCtx.beginPath();
+      clientCtx.moveTo(pos.x, pos.y);
+    });
+    
+    clientCanvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      if (!isDrawing) return;
+      const pos = getTouchPos(e);
+      clientCtx.lineTo(pos.x, pos.y);
+      clientCtx.stroke();
+    });
+    
+    clientCanvas.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      isDrawing = false;
+      clientSignatureData = clientCanvas.toDataURL('image/png');
+    });
+    
+    function clearClientSignature() {
+      clientCtx.clearRect(0, 0, clientCanvas.width / dpr, clientCanvas.height / dpr);
+      clientSignatureData = null;
+    }
+    
+    function submitContract() {
+      const name = document.getElementById('clientName').value.trim();
+      const position = document.getElementById('clientPosition').value;
+      const date = document.getElementById('clientDate').value;
+      
+      if (!name) {
+        alert('Please enter your full name');
+        return;
+      }
+      
+      if (!position) {
+        alert('Please select your position');
+        return;
+      }
+      
+      if (!clientSignatureData) {
+        alert('Please provide your signature');
+        return;
+      }
+      
+      if (!date) {
+        alert('Please select the date');
+        return;
+      }
+      
+      // Format date
+      const dateObj = new Date(date);
+      const formattedDate = dateObj.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+      
+      // Create signed client section
+      const signedClientHTML = `
+        <div class="sig-field"><div class="sig-label">Name</div><div style="padding: 8px 0; font-weight: bold;">${name}</div></div>
+        <div class="sig-field"><div class="sig-label">Position</div><div style="padding: 8px 0;">${position}</div></div>
+        <div class="sig-field">
+          <div class="sig-label">Signature</div>
+          <div style="border: 1px solid #ccc; min-height: 60px; background: #fafafa; display: flex; align-items: center; justify-content: center; padding: 10px; margin-top: 5px;">
+            <img src="${clientSignatureData}" alt="Signature" style="max-width: 100%; max-height: 50px; height: auto;">
+          </div>
+        </div>
+        <div class="sig-field"><div class="sig-label">Date</div><div style="padding: 8px 0;">${formattedDate}</div></div>
+      `;
+      
+      document.getElementById('client-signed-section').innerHTML = signedClientHTML;
+      document.getElementById('client-signed-section').style.display = 'block';
+      document.getElementById('client-sign-section').style.display = 'none';
+      document.getElementById('contract-actions').style.display = 'block';
+      
+      // Generate complete HTML document
+      setTimeout(() => {
+        generateFinalDocument(name, position, formattedDate, clientSignatureData);
+      }, 300);
+    }
+    
+    function generateFinalDocument(clientName, clientPosition, clientDate, clientSig) {
+      // Clone the entire document
+      const docClone = document.documentElement.cloneNode(true);
+      
+      // Remove scripts and interactive elements from clone
+      const scripts = docClone.querySelectorAll('script');
+      scripts.forEach(script => script.remove());
+      
+      const popup = docClone.querySelector('#thankYouPopup');
+      if (popup) popup.remove();
+      
+      const actions = docClone.querySelector('#contract-actions');
+      if (actions) actions.remove();
+      
+      // Get the complete HTML
+      signedContractHTML = '<!DOCTYPE html>\n' + docClone.outerHTML;
+    }
+    
+    function viewContract() {
+      // Open signed contract in new window
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write(signedContractHTML);
+      newWindow.document.close();
+    }
+    
+    function sendToWebhook() {
+      const btn = document.getElementById('sendWebhookBtn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      
+      const clientName = document.getElementById('clientName').value.trim();
+      const clientPosition = document.getElementById('clientPosition').value;
+      const clientDate = document.getElementById('clientDate').value;
+      
+      // Prepare data to send
+      const payload = {
+        clientName: clientName,
+        clientPosition: clientPosition,
+        signatureDate: clientDate,
+        signatureImage: clientSignatureData,
+        contractHTML: signedContractHTML,
+        timestamp: new Date().toISOString()
+      };
+      
+      // Send to Make.com webhook
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => {
+        if (response.ok) {
+          // Show thank you popup
+          document.getElementById('thankYouPopup').style.display = 'flex';
+        } else {
+          throw new Error('Failed to send contract');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Failed to send contract. Please try again or contact support.');
+        btn.disabled = false;
+        btn.textContent = 'Send Contract';
+      });
+    }
+    
+    function closeThankYou() {
+      document.getElementById('thankYouPopup').style.display = 'none';
+    }
+    
+    // Set today's date as default
+    document.addEventListener('DOMContentLoaded', function() {
+      // Always set today's date
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('clientDate').value = today;
+      
+      // Get URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      
+      // Auto-populate all placeholder fields from URL parameters
+      const placeholders = {
+        'ContractingPartyName': urlParams.get('clientCompany'),
+        'ContractingPartyJurisdiction': urlParams.get('clientJurisdiction'),
+        'ContractingPartyRegistrationNumber': urlParams.get('clientRegNumber'),
+        'ContractingPartyAddress': urlParams.get('clientAddress'),
+        'YourCompanyName': urlParams.get('contractorCompany'),
+        'YourCompanyRegistrationNumber': urlParams.get('contractorRegNumber'),
+        'YourCompanyAddress': urlParams.get('contractorAddress'),
+        'AgreementDate': formatTodayDate(), // Always use today's date
+        'AgreementStartDate': urlParams.get('startDate'),
+        'AgreementTermYears': urlParams.get('termYears'),
+        'PaymentTermsDays': urlParams.get('paymentDays'),
+        'RetentionPercentage': urlParams.get('retention'),
+        'PLIAmount': urlParams.get('pliAmount'),
+        'PIAmount': urlParams.get('piAmount'),
+        'TerminationNoticePeriod': urlParams.get('noticePeriod')
+      };
+      
+      // Replace all placeholders in the document
+      for (const [key, value] of Object.entries(placeholders)) {
+        if (value) {
+          const elements = document.querySelectorAll('.placeholder');
+          elements.forEach(el => {
+            if (el.textContent.includes('{{' + key + '}}')) {
+              el.textContent = value;
+              el.style.background = 'transparent';
+              el.style.padding = '0';
+            }
+          });
+        }
+      }
+      
+      // Auto-populate client name and position fields in the signature section
+      const clientName = urlParams.get('clientName');
+      const clientPosition = urlParams.get('clientPosition');
+      
+      if (clientName) {
+        document.getElementById('clientName').value = clientName;
+      }
+      
+      if (clientPosition) {
+        document.getElementById('clientPosition').value = clientPosition;
+      }
+    });
+    
+    function formatTodayDate() {
+      const today = new Date();
+      const day = String(today.getDate()).padStart(2, '0');
+      const month = today.toLocaleDateString('en-GB', { month: 'long' });
+      const year = today.getFullYear();
+      return `${day} ${month} ${year}`;
+    }
+    
+    function toggleNameEdit() {
+      const checkbox = document.getElementById('nameCheckbox');
+      const input = document.getElementById('clientName');
+      
+      if (checkbox.checked) {
+        input.readOnly = true;
+        input.style.background = '#e8f5e9';
+        input.style.borderColor = '#4caf50';
+      } else {
+        input.readOnly = false;
+        input.style.background = 'white';
+        input.style.borderColor = '#ccc';
+      }
+    }
+    
+    function togglePositionEdit() {
+      const checkbox = document.getElementById('positionCheckbox');
+      const input = document.getElementById('clientPosition');
+      
+      if (checkbox.checked) {
+        input.readOnly = true;
+        input.style.background = '#e8f5e9';
+        input.style.borderColor = '#4caf50';
+      } else {
+        input.readOnly = false;
+        input.style.background = 'white';
+        input.style.borderColor = '#ccc';
+      }
+    }
+  </script>
+</body>
+</html>

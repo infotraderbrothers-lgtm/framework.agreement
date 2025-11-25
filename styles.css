@@ -1,0 +1,236 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+.document {
+  max-width: 210mm;
+  margin: 0 auto;
+  background: white;
+  padding: 60px 70px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header {
+  text-align: center;
+  border-bottom: 3px double #333;
+  padding-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 18pt;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.header .subtitle {
+  font-size: 12pt;
+  font-weight: normal;
+  letter-spacing: 1px;
+  color: #444;
+}
+
+.parties {
+  margin-bottom: 35px;
+  padding: 25px;
+  background: #fafafa;
+  border-left: 4px solid #333;
+}
+
+.parties h2 {
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.party {
+  margin-bottom: 15px;
+}
+
+.party:last-child { 
+  margin-bottom: 0; 
+}
+
+.party-label {
+  font-weight: bold;
+  font-size: 10pt;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.party-name {
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+.placeholder {
+  background: #fff3cd;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 9pt;
+}
+
+.effective-date {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 40px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.section {
+  margin-bottom: 30px;
+  page-break-inside: avoid;
+}
+
+.section-number {
+  font-size: 12pt;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.subsection {
+  margin: 15px 0 15px 20px;
+}
+
+.subsection-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.clause {
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.clause-number {
+  font-weight: bold;
+}
+
+.definitions dt {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.definitions dd {
+  margin-left: 20px;
+  margin-bottom: 8px;
+}
+
+ul.scope-list {
+  margin: 10px 0 10px 40px;
+  list-style-type: disc;
+}
+
+ul.scope-list li {
+  margin: 5px 0;
+}
+
+ol.process-list {
+  margin: 10px 0 10px 40px;
+}
+
+ol.process-list li {
+  margin: 5px 0;
+}
+
+.schedules-ref {
+  margin: 40px 0;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.schedules-ref h3 {
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.signature-block {
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 2px solid #333;
+}
+
+.signature-header {
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.signature-parties {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.signature-party {
+  flex: 1;
+}
+
+.signature-party h4 {
+  font-size: 10pt;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+}
+
+.sig-field {
+  margin: 15px 0;
+}
+
+.sig-label {
+  font-size: 9pt;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.sig-line {
+  border-bottom: 1px solid #333;
+  min-height: 25px;
+  margin-top: 5px;
+}
+
+@media print {
+  body { 
+    background: white; 
+    padding: 0; 
+  }
+  .document { 
+    box-shadow: none; 
+    padding: 40px 50px; 
+  }
+  .section { 
+    page-break-inside: avoid; 
+  }
+}

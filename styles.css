@@ -1,0 +1,550 @@
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #f5f5f5;
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding: 20px;
+  }
+}
+
+.document {
+  max-width: 210mm;
+  margin: 0 auto;
+  background: white;
+  padding: 30px 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+@media (min-width: 768px) {
+  .document {
+    padding: 60px 70px;
+  }
+}
+
+.header {
+  text-align: center;
+  border-bottom: 3px double #333;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+  }
+}
+
+.parties {
+  margin-bottom: 25px;
+  padding: 20px;
+  background: #fafafa;
+  border-left: 4px solid #333;
+}
+
+@media (min-width: 768px) {
+  .parties {
+    margin-bottom: 35px;
+    padding: 25px;
+  }
+}
+
+.parties h2 {
+  font-size: 10pt;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.party {
+  margin-bottom: 15px;
+  word-wrap: break-word;
+}
+
+.party:last-child { 
+  margin-bottom: 0; 
+}
+
+.party-label {
+  font-weight: bold;
+  font-size: 10pt;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.party-name {
+  font-weight: bold;
+  font-size: 11pt;
+}
+
+.placeholder {
+  background: #fff3cd;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 9pt;
+  word-break: break-word;
+}
+
+.effective-date {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 30px;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+@media (min-width: 768px) {
+  .effective-date {
+    margin-bottom: 40px;
+  }
+}
+
+.section {
+  margin-bottom: 25px;
+  page-break-inside: avoid;
+}
+
+@media (min-width: 768px) {
+  .section {
+    margin-bottom: 30px;
+  }
+}
+
+.section-number {
+  font-size: 11pt;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+  .section-number {
+    font-size: 12pt;
+  }
+}
+
+.subsection {
+  margin: 15px 0 15px 10px;
+}
+
+@media (min-width: 768px) {
+  .subsection {
+    margin: 15px 0 15px 20px;
+  }
+}
+
+.subsection-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.clause {
+  margin: 10px 0;
+  text-align: justify;
+}
+
+.clause-number {
+  font-weight: bold;
+}
+
+.definitions dt {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.definitions dd {
+  margin-left: 15px;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .definitions dd {
+    margin-left: 20px;
+  }
+}
+
+ul.scope-list {
+  margin: 10px 0 10px 25px;
+  list-style-type: disc;
+}
+
+@media (min-width: 768px) {
+  ul.scope-list {
+    margin: 10px 0 10px 40px;
+  }
+}
+
+ul.scope-list li {
+  margin: 5px 0;
+}
+
+ol.process-list {
+  margin: 10px 0 10px 25px;
+}
+
+@media (min-width: 768px) {
+  ol.process-list {
+    margin: 10px 0 10px 40px;
+  }
+}
+
+ol.process-list li {
+  margin: 5px 0;
+}
+
+.signature-block {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 2px solid #333;
+}
+
+@media (min-width: 768px) {
+  .signature-block {
+    margin-top: 60px;
+    padding-top: 30px;
+  }
+}
+
+.signature-header {
+  font-size: 12pt;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 768px) {
+  .signature-header {
+    font-size: 14pt;
+    margin-bottom: 40px;
+  }
+}
+
+.contractor-signatures {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+  .contractor-signatures {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 60px;
+  }
+}
+
+.digital-sig-box {
+  flex: 1;
+  border: 1px solid #333;
+  padding: 15px;
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .digital-sig-box {
+    padding: 20px;
+  }
+}
+
+.sig-info-label {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.sig-info-name {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.sig-info-position {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.sig-image-box {
+  border: 1px solid #ccc;
+  min-height: 60px;
+  background: #fafafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.sig-image-box img {
+  max-width: 100%;
+  max-height: 50px;
+  height: auto;
+}
+
+.client-signature-section {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .client-signature-section {
+    max-width: 400px;
+  }
+}
+
+.sig-field {
+  margin: 15px 0;
+}
+
+.sig-label {
+  font-size: 9pt;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.input-with-confirm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input-with-confirm input[type="text"],
+.sig-field input[type="date"] {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-family: 'Times New Roman', Georgia, serif;
+  font-size: 11pt;
+  background: white;
+}
+
+.confirm-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-size: 9pt;
+  color: #666;
+  white-space: nowrap;
+}
+
+.confirm-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: #bc9c22;
+}
+
+#clientSignaturePad {
+  width: 100%;
+  height: 120px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  background: white;
+  cursor: crosshair;
+  display: block;
+  touch-action: none;
+}
+
+.btn-primary, .btn-secondary, .btn-view, .btn-send {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 11pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: opacity 0.3s;
+}
+
+@media (min-width: 768px) {
+  .btn-primary {
+    padding: 12px 40px;
+    border-radius: 8px;
+    font-size: 12pt;
+  }
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #bc9c22, #a68a1e);
+  color: white;
+}
+
+.btn-secondary {
+  background: #6b5a16;
+  color: white;
+  margin-top: 8px;
+  padding: 6px 15px;
+  font-size: 10pt;
+}
+
+.btn-view {
+  background: linear-gradient(135deg, #2d2d2d, #1a1a1a);
+  color: white;
+}
+
+.btn-send {
+  background: linear-gradient(135deg, #bc9c22, #a68a1e);
+  color: white;
+}
+
+.btn-primary:hover, .btn-secondary:hover, .btn-view:hover, .btn-send:hover {
+  opacity: 0.9;
+}
+
+.contract-actions {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.contract-actions h4 {
+  font-size: 11pt;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.action-buttons button {
+  width: 100%;
+  padding: 12px;
+  font-size: 11pt;
+}
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .popup-content {
+    padding: 50px;
+    border-radius: 20px;
+  }
+}
+
+.popup-checkmark {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .popup-checkmark {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+}
+
+.popup-content h2 {
+  font-size: 20pt;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .popup-content h2 {
+    font-size: 24pt;
+    margin-bottom: 20px;
+  }
+}
+
+.popup-text {
+  font-size: 12pt;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .popup-text {
+    font-size: 13pt;
+  }
+}
+
+.popup-delivery {
+  font-size: 11pt;
+  color: #bc9c22;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+  .popup-delivery {
+    font-size: 12pt;
+    margin-bottom: 30px;
+  }
+}
+
+@media print {
+  body { 
+    background: white; 
+    padding: 0; 
+  }
+  
+  .document { 
+    box-shadow: none; 
+    padding: 40px 50px; 
+  }
+  
+  .section { 
+    page-break-inside: avoid; 
+  }
+}

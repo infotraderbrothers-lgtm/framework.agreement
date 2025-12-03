@@ -2,6 +2,7 @@
 const WEBHOOK_URL = 'https://hook.eu2.make.com/c97sl5bvcsqf54pbf7g1myqj7quiapwf';
 
 let signedContractHTML = '';
+let contractData = {}; // Store all contract data
 
 function submitContract() {
   const name = document.getElementById('clientName').value.trim();
@@ -131,17 +132,38 @@ async function sendToWebhook() {
     const sizeInBytes = Math.round((compressedSignature.length * 3) / 4);
     const sizeInKB = (sizeInBytes / 1024).toFixed(2);
     
-    // Create FormData to send as separate fields (matching signature tool format)
+    // Create FormData to send as separate fields
     const formData = new FormData();
+    
+    // Client signature data
     formData.append('clientName', clientName);
     formData.append('clientPosition', clientPosition);
     formData.append('signatureDate', clientDate);
     formData.append('signature', compressedSignature);
-    formData.append('contractHTML', signedContractHTML);
-    formData.append('timestamp', new Date().toISOString());
     formData.append('signatureSizeKB', sizeInKB);
     
-    // Send to Make.com webhook with no-cors mode (matching signature tool)
+    // Contract details from URL parameters
+    formData.append('clientCompany', contractData.clientCompany || '');
+    formData.append('clientJurisdiction', contractData.clientJurisdiction || '');
+    formData.append('clientRegNumber', contractData.clientRegNumber || '');
+    formData.append('clientAddress', contractData.clientAddress || '');
+    formData.append('contractorCompany', contractData.contractorCompany || '');
+    formData.append('contractorRegNumber', contractData.contractorRegNumber || '');
+    formData.append('contractorAddress', contractData.contractorAddress || '');
+    formData.append('agreementDate', contractData.agreementDate || '');
+    formData.append('startDate', contractData.startDate || '');
+    formData.append('termYears', contractData.termYears || '');
+    formData.append('paymentDays', contractData.paymentDays || '');
+    formData.append('retention', contractData.retention || '');
+    formData.append('pliAmount', contractData.pliAmount || '');
+    formData.append('piAmount', contractData.piAmount || '');
+    formData.append('noticePeriod', contractData.noticePeriod || '');
+    
+    // Contract HTML and metadata
+    formData.append('contractHTML', signedContractHTML);
+    formData.append('timestamp', new Date().toISOString());
+    
+    // Send to Make.com webhook with no-cors mode
     const response = await fetch(WEBHOOK_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -180,23 +202,42 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get URL parameters
   const urlParams = new URLSearchParams(window.location.search);
   
+  // Store contract data for webhook
+  contractData = {
+    clientCompany: urlParams.get('clientCompany') || '',
+    clientJurisdiction: urlParams.get('clientJurisdiction') || '',
+    clientRegNumber: urlParams.get('clientRegNumber') || '',
+    clientAddress: urlParams.get('clientAddress') || '',
+    contractorCompany: urlParams.get('contractorCompany') || 'Trader Brothers',
+    contractorRegNumber: urlParams.get('contractorRegNumber') || 'SC815790',
+    contractorAddress: urlParams.get('contractorAddress') || 'P.O. Box',
+    agreementDate: formatTodayDate(),
+    startDate: urlParams.get('startDate') || '',
+    termYears: urlParams.get('termYears') || '3',
+    paymentDays: urlParams.get('paymentDays') || '7',
+    retention: urlParams.get('retention') || '10',
+    pliAmount: urlParams.get('pliAmount') || '5 million',
+    piAmount: urlParams.get('piAmount') || '£250,000',
+    noticePeriod: urlParams.get('noticePeriod') || '30'
+  };
+  
   // Auto-populate all placeholder fields from URL parameters
   const placeholders = {
-    'ContractingPartyName': urlParams.get('clientCompany'),
-    'ContractingPartyJurisdiction': urlParams.get('clientJurisdiction'),
-    'ContractingPartyRegistrationNumber': urlParams.get('clientRegNumber'),
-    'ContractingPartyAddress': urlParams.get('clientAddress'),
-    'YourCompanyName': urlParams.get('contractorCompany'),
-    'YourCompanyRegistrationNumber': urlParams.get('contractorRegNumber'),
-    'YourCompanyAddress': urlParams.get('contractorAddress'),
-    'AgreementDate': formatTodayDate(),
-    'AgreementStartDate': urlParams.get('startDate'),
-    'AgreementTermYears': urlParams.get('termYears'),
-    'PaymentTermsDays': urlParams.get('paymentDays'),
-    'RetentionPercentage': urlParams.get('retention'),
-    'PLIAmount': urlParams.get('pliAmount'),
-    'PIAmount': urlParams.get('piAmount'),
-    'TerminationNoticePeriod': urlParams.get('noticePeriod')
+    'ContractingPartyName': contractData.clientCompany,
+    'ContractingPartyJurisdiction': contractData.clientJurisdiction,
+    'ContractingPartyRegistrationNumber': contractData.clientRegNumber,
+    'ContractingPartyAddress': contractData.clientAddress,
+    'YourCompanyName': contractData.contractorCompany,
+    'YourCompanyRegistrationNumber': contractData.contractorRegNumber,
+    'YourCompanyAddress': contractData.contractorAddress,
+    'AgreementDate': contractData.agreementDate,
+    'AgreementStartDate': contractData.startDate,
+    'AgreementTermYears': contractData.termYears,
+    'PaymentTermsDays': contractData.paymentDays,
+    'RetentionPercentage': contractData.retention,
+    'PLIAmount': contractData.pliAmount,
+    'PIAmount': contractData.piAmount,
+    'TerminationNoticePeriod': contractData.noticePeriod
   };
   
   // Replace all placeholders in the document

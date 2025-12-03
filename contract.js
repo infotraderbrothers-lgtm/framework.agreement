@@ -164,14 +164,18 @@ async function sendToWebhook() {
     formData.append('timestamp', new Date().toISOString());
     
     // Send to Make.com webhook with no-cors mode
-    const response = await fetch(WEBHOOK_URL, {
+    await fetch(WEBHOOK_URL, {
       method: 'POST',
       mode: 'no-cors',
       body: formData
     });
     
-    // Show thank you popup (no-cors doesn't return response, so we assume success)
-    document.getElementById('thankYouPopup').style.display = 'flex';
+    // Since no-cors doesn't return response, wait a moment then show success
+    setTimeout(() => {
+      document.getElementById('thankYouPopup').style.display = 'flex';
+      btn.disabled = false;
+      btn.textContent = 'Send Contract';
+    }, 1000);
     
   } catch (error) {
     console.error('Error:', error);

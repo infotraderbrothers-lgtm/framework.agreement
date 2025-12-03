@@ -1,5 +1,5 @@
-// Webhook URL - Replace with your Make.com webhook URL
-const WEBHOOK_URL = 'YOUR_MAKE_COM_WEBHOOK_URL_HERE';
+// Webhook URL - Updated to your Make.com webhook
+const WEBHOOK_URL = 'https://hook.eu2.make.com/c97sl5bvcsqf54pbf7g1myqj7quiapwf';
 
 let signedContractHTML = '';
 
@@ -94,7 +94,29 @@ function viewContract() {
   newWindow.document.close();
 }
 
-function sendToWebhook() {
+function compressSignature(base64Data) {
+  // Create a temporary canvas to compress the signature
+  const img = new Image();
+  const tempCanvas = document.createElement('canvas');
+  const tempCtx = tempCanvas.getContext('2d');
+  
+  return new Promise((resolve) => {
+    img.onload = () => {
+      // Set compressed dimensions (similar to signature tool)
+      tempCanvas.width = 300;
+      tempCanvas.height = 100;
+      
+      // Draw the image scaled down
+      tempCtx.drawImage(img, 0, 0, 300, 100);
+      
+      // Return compressed base64
+      resolve(tempCanvas.toDataURL('image/png', 0.7));
+    };
+    img.src = base64Data;
+  });
+}
+
+async function sendToWebhook() {
   const btn = document.getElementById('sendWebhookBtn');
   btn.disabled = true;
   btn.textContent = 'Sending...';
@@ -103,38 +125,38 @@ function sendToWebhook() {
   const clientPosition = document.getElementById('clientPosition').value;
   const clientDate = document.getElementById('clientDate').value;
   
-  // Prepare data to send
-  const payload = {
-    clientName: clientName,
-    clientPosition: clientPosition,
-    signatureDate: clientDate,
-    signatureImage: clientSignatureData,
-    contractHTML: signedContractHTML,
-    timestamp: new Date().toISOString()
-  };
-  
-  // Send to Make.com webhook
-  fetch(WEBHOOK_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload)
-  })
-  .then(response => {
-    if (response.ok) {
-      // Show thank you popup
-      document.getElementById('thankYouPopup').style.display = 'flex';
-    } else {
-      throw new Error('Failed to send contract');
-    }
-  })
-  .catch(error => {
+  try {
+    // Compress the signature before sending
+    const compressedSignature = await compressSignature(clientSignatureData);
+    const sizeInBytes = Math.round((compressedSignature.length * 3) / 4);
+    const sizeInKB = (sizeInBytes / 1024).toFixed(2);
+    
+    // Create FormData to send as separate fields (matching signature tool format)
+    const formData = new FormData();
+    formData.append('clientName', clientName);
+    formData.append('clientPosition', clientPosition);
+    formData.append('signatureDate', clientDate);
+    formData.append('signature', compressedSignature);
+    formData.append('contractHTML', signedContractHTML);
+    formData.append('timestamp', new Date().toISOString());
+    formData.append('signatureSizeKB', sizeInKB);
+    
+    // Send to Make.com webhook with no-cors mode (matching signature tool)
+    const response = await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    });
+    
+    // Show thank you popup (no-cors doesn't return response, so we assume success)
+    document.getElementById('thankYouPopup').style.display = 'flex';
+    
+  } catch (error) {
     console.error('Error:', error);
     alert('Failed to send contract. Please try again or contact support.');
     btn.disabled = false;
     btn.textContent = 'Send Contract';
-  });
+  }
 }
 
 function closeThankYou() {
